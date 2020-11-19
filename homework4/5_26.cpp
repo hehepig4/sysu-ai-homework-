@@ -1,6 +1,6 @@
 #include<cmath>
 #include<cstdio>
-#include<cmath>
+//#include<cmath>
 using namespace std;
 int yz(int n) {
 	int ans = 0;
