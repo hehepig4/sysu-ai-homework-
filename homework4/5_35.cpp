@@ -18,6 +18,5 @@ int main() {
 		printf("0");
 		return 0;
 	}
-	printf("%lld", feb(n));
-//maxÔ¼Îª12000×óÓÒ
+	printf("%llu", feb(n));
 }
