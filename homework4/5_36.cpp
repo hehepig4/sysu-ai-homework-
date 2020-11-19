@@ -1,7 +1,7 @@
 #include<iostream>
 #include<cstdio>
 using namespace std;
-int a[3][65], n, ans;
+int n, ans;
 void ptf(int i, int j) {
 	printf("%d->%d\n", i, j);
 	//ans++;
