@@ -1,8 +1,8 @@
-#include<iostream>
+/*#include<iostream>
 #include<algorithm>
 #include<vector>
 using namespace std;
-vector<int> a;//¿É±äÊı×é ÊéÉÏËµvisualc++ÓÃ²»ÁËÊéÉÏµÄ¿É±äÊı×é È·ÊµÓÃ²»ÁË ËùÒÔ²»ÓÃÁË
+vector<int> a;//å¯å˜æ•°ç»„ ä¹¦ä¸Šè¯´visualc++ç”¨ä¸äº†ä¹¦ä¸Šçš„å¯å˜æ•°ç»„ ç¡®å®ç”¨ä¸äº† æ‰€ä»¥ä¸ç”¨äº†
 int x;
 bool fx = false;
 int main() {
@@ -10,7 +10,7 @@ int main() {
 	a.push_back(x);
 	for (int i = 0; i < 19; i++) {
 		scanf("%d", &x);
-		for (vector<int>::iterator iter = a.begin(); iter != a.end(); ++iter) { //±éÀúÊı×é£¬¿ÉÒÔ×ÔĞĞÊµÏÖ
+		for (vector<int>::iterator iter = a.begin(); iter != a.end(); ++iter) { //éå†æ•°ç»„ï¼Œå¯ä»¥è‡ªè¡Œå®ç°ï¿½
 			if (*iter == x) {
 				fx = true;
 				break;
@@ -19,5 +19,7 @@ int main() {
 		if (!fx) a.push_back(x);
 		fx = false;
 	}
-	for (vector<int>::iterator iter = a.begin(); iter != a.end(); ++iter) printf("%d ", *iter); //±éÀúÊı×é£¬¿ÉÒÔ×ÔĞĞÊµÏÖ
-}
+	for (vector<int>::iterator iter = a.begin(); iter != a.end(); ++iter) printf("%d ", *iter); //éå†æ•°ç»„ï¼Œå¯ä»¥è‡ªè¡Œå®ç°ï¿½
+}*/
+//To do:ç”¨cå®ç°ç±»ä¼¼äºvectorçš„åŠ¨æ€æ•°ç»„&ç©ºé—´æœ€ä¼˜åŒ–(æ—¶é—´æ•ˆç‡qtm)    ä»¥åŠå®šé•¿æ•°ç»„æ–¹æ¡ˆ
+//æˆ‘ä»¬å«å®ƒ vectorFucker å§w
