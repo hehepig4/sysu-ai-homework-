@@ -27,12 +27,72 @@ int main() {
 #include<stdlib.h>
 #include<string.h>
 
-char* addNum(char* origin,char add,char capability)  //什么叫省空间啊.jpg
+typedef struct _dynamicarr
 {
-	char* newSpace=malloc(sizeof(char)*(capability+1));
-	memcpy(newSpace,origin,capability*sizeof(char));
-	newSpace[capability]=add;
-	return newSpace;
+	char* data;
+	char capability;
+	char (*add)(char);
+	char (*isexist)(char);     //in fact it's bool
+}dynamicarr;
+
+dynamicarr* thisArr=NULL;     //"this" pointer
+
+char addnum(char add)  //什么叫省空间啊.jpg
+{
+	if(thisArr->isexist(add))    
+		return 0;
+	char* newSpace=(char*)malloc(sizeof(char)*(thisArr->capability+1));
+	if(newSpace==NULL)
+	{
+		puts("ERROR!");
+		exit(0);
+	}
+	if(thisArr->capability)
+	{
+		memcpy(newSpace,thisArr->data,thisArr->capability*sizeof(char));
+		free(thisArr->data);
+	}
+	newSpace[thisArr->capability]=add;
+	++(thisArr->capability);
+	thisArr->data=newSpace;
+	return 1;
 }
+
+char searchfornum(char target)
+{
+	for(int i=0;i<thisArr->capability;++i)
+		if(thisArr->data[i]==target)
+			return 1;
+	return 0;
+}
+
+dynamicarr* newArr()     //constructor
+{
+	thisArr=(dynamicarr*)malloc(sizeof(dynamicarr));
+	if(thisArr==NULL)
+	{
+		puts("ERROR!");
+		exit(0);
+	}
+	thisArr->data=NULL,thisArr->capability=0;
+	thisArr->add=addnum,thisArr->isexist=searchfornum;
+	return thisArr;
+}
+
+int main()
+{
+	dynamicarr*  array=newArr();
+	char input=0;
+	for(int i=0;i<20;++i)
+	{
+		input=i;
+		//scanf("%d",&input);
+		//printf("%d\n",input);
+		array->add(input);
+	}
+	for(int i=0;i<array->capability;++i)
+		printf("%d ",array->data[i]);
+}
+
 
 
