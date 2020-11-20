@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<math.h>
-using namespace std;
 float roundToInterger(float num) {
 	return floor(num + 0.5);
 }

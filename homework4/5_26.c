@@ -1,7 +1,5 @@
-#include<cmath>
-#include<cstdio>
-//#include<cmath>
-using namespace std;
+#include<math.h>
+#include<stdio.h>
 int yz(int n) {
 	int ans = 0;
 	int now = 2;

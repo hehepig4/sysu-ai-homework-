@@ -1,5 +1,4 @@
 #include<stdio.h>
-using namespace std;
 int n;
 int isEven(int n) {
 	return n % 2 == 1 ? 0 : 1;

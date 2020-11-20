@@ -1,5 +1,4 @@
 #include<stdio.h>
-using namespace std;
 char x;
 int n;
 void matrix(int n, char fillCharacter) {
