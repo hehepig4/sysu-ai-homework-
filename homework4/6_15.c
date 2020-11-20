@@ -27,6 +27,7 @@ int main()
 	for(int i=0;i<count;++i)
 		printf("%d ",input[i]);
 	getchar();
+	getchar();
 	return 0;
 }
 

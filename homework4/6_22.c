@@ -1,6 +1,5 @@
 #include<stdio.h>
-using namespace std;
-int card[601][3]; //¿¨Æ¬±àºÅ£¬ÄÚÈİ
+int card[601][3]; //å¡ç‰‡ç¼–å·ï¼Œå†…å®¹
 int ren[4][5],a,b,c,n;
 int main() {
 	scanf("%d", &n);
