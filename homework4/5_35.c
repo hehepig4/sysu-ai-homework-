@@ -1,6 +1,4 @@
-#include<iostream>
-#include<cstdio>
-using namespace std;
+#include<stdio.h>
 int n;
 //unsigned long long f[100000];
 unsigned long long feb(int n) {
