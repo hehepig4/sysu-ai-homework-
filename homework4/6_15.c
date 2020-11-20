@@ -22,4 +22,17 @@ int main() {
 	for (vector<int>::iterator iter = a.begin(); iter != a.end(); ++iter) printf("%d ", *iter); //遍历数组，可以自行实现�
 }*/
 //To do:用c实现类似于vector的动态数组&空间最优化(时间效率qtm)    以及定长数组方案
-//我们叫它 vectorFucker 吧w
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+char* addNum(char* origin,char add,char capability)  //什么叫省空间啊.jpg
+{
+	char* newSpace=malloc(sizeof(char)*(capability+1));
+	memcpy(newSpace,origin,capability*sizeof(char));
+	newSpace[capability]=add;
+	return newSpace;
+}
+
+
