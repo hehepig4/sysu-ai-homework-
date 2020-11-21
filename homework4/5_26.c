@@ -2,7 +2,6 @@
 #include<stdio.h>
 int yz(int n) {
 	int ans = 0;
-	int now = 2;
 	for (int i = 1; i <= (int)sqrt(n); i++) {
 		if (n % i == 0) ans += i + n / i;
 	}
