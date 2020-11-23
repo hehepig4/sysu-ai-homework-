@@ -4,6 +4,7 @@ int yz(int n) {
 	int ans = 0;
 	for (int i = 1; i <= (int)sqrt(n); i++) {
 		if (n % i == 0) ans += i + n / i;
+	        if (n % i == 0 && i == n / i) ans -= i; //特判完全平方数
 	}
 	return ans - n;
 }
