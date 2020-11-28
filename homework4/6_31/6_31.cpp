@@ -1,7 +1,8 @@
 //循环实现，看不太出有递归的必要
 //string类型可以近似看为char[]
 #include<string>
-#include<stdio.h>
+//#include<stdio.h>   //用string还是乖乖cpp
+#include<iostream>
 using namespace std;
 string s;
 int isornot(string ss) {
@@ -11,9 +12,10 @@ int isornot(string ss) {
 	return 1;
 }
 int main() {
-	scanf("%s", &s[0]);
+	//scanf("%s", &s[0]);  没得，而且它也不读空格
+	getline(cin, s);
 	for (int i = 0; i < s.length(); i++) {
 		if (s[i] == ' ') s.erase(s.begin()+i, s.begin()+i+1);//移除空格
 	}
-
+	//后面调用isornot判断即可
 }
