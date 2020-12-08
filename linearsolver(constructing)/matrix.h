@@ -2,11 +2,11 @@
 #define _MATRIX_H_
 #define NWR
 #ifdef WR
-#define RAW_SWAP(__,___) cout << "r" << __<< "<=>" << "r" <<___ << '\n';
-#define RAW_MUIT(__,___) cout << "r" << __ << "*" << ___ << '\n';
-#define RAW_DIVI(__,___) cout << "r" << __ << "/" << ___ << '\n';
-#define RAW_ADD(__,___,____) cout << "r" << __ << "+" <<___<< "r" << ____<< '\n';
-#define RAW_SUB(__,___,____) cout << "r" << __ << "-" <<___<< "r" << ____ <<'\n';
+#define ROW_SWAP(__,___) cout << "r" << __<< "<=>" << "r" <<___ << '\n';
+#define ROW_MUIT(__,___) cout << "r" << __ << "*" << ___ << '\n';
+#define ROW_DIVI(__,___) cout << "r" << __ << "/" << ___ << '\n';
+#define ROW_ADD(__,___,____) cout << "r" << __ << "+" <<___<< "r" << ____<< '\n';
+#define ROW_SUB(__,___,____) cout << "r" << __ << "-" <<___<< "r" << ____ <<'\n';
 #define PRT_NOW cout<<*this<<endl;
 #define CROSS_SWAP(__,___) cout << "l" << __<< "<=>" << "l" <<___ << '\n';
 #define CROSS_MUIT(__,___) cout << "l" << __ << "*" << ___ << '\n';
@@ -15,11 +15,11 @@
 #define CROSS_SUB(__,___,____) cout << "l" << __ << "-" <<___<< "l" << ____ <<'\n';
 #endif
 #ifdef NWR
-#define RAW_SWAP(__,___)
-#define RAW_MUIT(__,___)
-#define RAW_DIVI(__,___)
-#define RAW_ADD(__,___,____)
-#define RAW_SUB(__,___,____)
+#define ROW_SWAP(__,___)
+#define ROW_MUIT(__,___)
+#define ROW_DIVI(__,___)
+#define ROW_ADD(__,___,____)
+#define ROW_SUB(__,___,____)
 #define PRT_NOW  
 #define CROSS_SWAP(__,___)
 #define CROSS_MUIT(__,___)
@@ -37,34 +37,34 @@
 using namespace std;
 class matrix { //[row][cross]
 public:
-//¹¹Ôìº¯Êı
+//æ„é€ å‡½æ•°
 	matrix()= default;
-	matrix(int a);											//Î¬¶È·½Õó³õÊ¼»¯
-	template<typename T> matrix(T* ao ,int row,int cross);				//Êı×é³õÊ¼»¯
-	matrix(int,int);										//Î¬¶È³õÊ¼»¯
+	matrix(int a);											//ç»´åº¦æ–¹é˜µåˆå§‹åŒ–
+	template<typename T> matrix(T* ao ,int row,int cross);				//æ•°ç»„åˆå§‹åŒ–
+	matrix(int,int);										//ç»´åº¦åˆå§‹åŒ–
 	matrix(matrix a1, matrix a2);
 public:
-//ÔËËã·ûÖØÔØÉùÃ÷
+//è¿ç®—ç¬¦é‡è½½å£°æ˜
 
 public:
-//ÔËËã·ûÖØÔØÊµÏÖ
+//è¿ç®—ç¬¦é‡è½½å®ç°
 	vector<ratio>& operator [] ( int i) {
 		return _mat[i];
 	}
 public:
-//ÔËËã
-	int			rank();											//¾ØÕóµÄÖÈ
-	matrix		inv();											//Äæ¾ØÕó
-	ratio		det();											//ĞĞÁĞÊ½
-	void		rref();											//ĞĞ½×ÌİĞÍ¾ØÕó
-	inline void resize();										//¸Ä±ä¾ØÕóºóÖØĞÂ¼ÆËã´óĞ¡
-	matrix		transfer();										//×ªÖÃ¾ØÕó 
-	inline void row();											//ÖØÔØĞĞÊı£¨¸ß£©
-	inline void cross();										//ÖØÔØÁĞÊı£¨¿í£©
-	void		simplfied();									//ĞĞ×î¼òĞÎ¾ØÕó
-	void		Gauss_elimination();							//¸ßË¹Ô¼µ±ÏûÔª·¨
+//è¿ç®—
+	int			rank();											//çŸ©é˜µçš„ç§©
+	matrix		inv();											//é€†çŸ©é˜µ
+	ratio		det();											//è¡Œåˆ—å¼
+	void		rref();											//è¡Œé˜¶æ¢¯å‹çŸ©é˜µ
+	inline void resize();										//æ”¹å˜çŸ©é˜µåé‡æ–°è®¡ç®—å¤§å°
+	matrix		transfer();										//è½¬ç½®çŸ©é˜µ 
+	inline void row();											//é‡è½½è¡Œæ•°ï¼ˆé«˜ï¼‰
+	inline void cross();										//é‡è½½åˆ—æ•°ï¼ˆå®½ï¼‰
+	void		simplfied();									//è¡Œæœ€ç®€å½¢çŸ©é˜µ
+	void		Gauss_elimination();							//é«˜æ–¯çº¦å½“æ¶ˆå…ƒæ³•
 public:
-//±äÁ¿´¢´æ
+//å˜é‡å‚¨å­˜
 	int _raw, _cross,_rank;
 	bool _has_Gauss;
 	ratio _det;
@@ -72,26 +72,26 @@ public:
 	
 };
 
-//ÔËËã·ûÉùÃ÷
-bool operator == (matrix a1, matrix a2);					//a1,a2µÈ¼Û
-bool operator != (matrix a1, matrix a2);					//a1,a2²»µÈ¼Û
+//è¿ç®—ç¬¦å£°æ˜
+bool operator == (matrix a1, matrix a2);					//a1,a2ç­‰ä»·
+bool operator != (matrix a1, matrix a2);					//a1,a2ä¸ç­‰ä»·
 matrix operator + ( matrix a1, matrix a2);
 matrix operator - ( matrix a1, matrix a2);
-matrix operator * ( matrix a1, matrix a2);					//¾ØÕó³Ë·¨
-matrix operator * (matrix a1, ratio con);					//Êı³Ë
+matrix operator * ( matrix a1, matrix a2);					//çŸ©é˜µä¹˜æ³•
+matrix operator * (matrix a1, ratio con);					//æ•°ä¹˜
 matrix operator * (ratio con, matrix a1);
 matrix operator / (matrix a1, ratio con);
-bool operator >=(matrix a1, matrix a2);					//a1¿ÉÒÔÏßĞÔ±íÊ¾a2
-bool operator <=(matrix a1, matrix a2);					//a1¿ÉÓÉa2ÏßĞÔ±íÊ¾
-ostream& operator<<(std::ostream& os, const matrix& r);		// <<matrixÊä³ö¾ØÕó
+bool operator >=(matrix a1, matrix a2);					//a1å¯ä»¥çº¿æ€§è¡¨ç¤ºa2
+bool operator <=(matrix a1, matrix a2);					//a1å¯ç”±a2çº¿æ€§è¡¨ç¤º
+ostream& operator<<(std::ostream& os, const matrix& r);		// <<matrixè¾“å‡ºçŸ©é˜µ
 
-//Íâ²¿º¯ÊıÉùÃ÷
-matrix functions_solve(matrix coefficient, matrix constant);	//AX=B;½âÏßĞÔ·½³Ì×é
-matrix eye(int level);											//n½×µ¥Î»¾ØÕóÉú³É
-matrix rand_matrix(int row, int cross, ratio sup, ratio inf);	//n½×Ëæ»ú¾ØÕóÉú³É
-matrix matrix_function_solve(matrix coefficient, matrix target);//AX=B;½â¾ØÕó·½³Ì×é
+//å¤–éƒ¨å‡½æ•°å£°æ˜
+matrix functions_solve(matrix coefficient, matrix constant);	//AX=B;è§£çº¿æ€§æ–¹ç¨‹ç»„
+matrix eye(int level);											//né˜¶å•ä½çŸ©é˜µç”Ÿæˆ
+matrix rand_matrix(int row, int cross, ratio sup, ratio inf);	//né˜¶éšæœºçŸ©é˜µç”Ÿæˆ
+matrix matrix_function_solve(matrix coefficient, matrix target);//AX=B;è§£çŸ©é˜µæ–¹ç¨‹ç»„
 
-//³ÉÔ±º¯ÊıÊµÏÖ
+//æˆå‘˜å‡½æ•°å®ç°
 ratio  matrix::det() {
 	Gauss_elimination();
 	if (_raw == _cross) {
@@ -120,14 +120,14 @@ void   matrix::Gauss_elimination() {
 		if (j != k) {
 			_det = -_det;
 			swap(_mat[k], _mat[now]);
-			RAW_SWAP(k, now)
+			ROW_SWAP(k, now)
 			PRT_NOW
 		}
 		_det *= _mat[now][j];
-		RAW_MUIT(now, ratio(_mat[now][j].den,_mat[now][j].num,_mat[now][j].negative));
+		ROW_MUIT(now, ratio(_mat[now][j].den,_mat[now][j].num,_mat[now][j].negative));
 		for (int i = _cross; i >= now; i--) _mat[now][i] /= _mat[now][j];
 		for (int i = now + 1; i <= _raw; i++){
-			RAW_SUB(i, _mat[i][j], now)
+			ROW_SUB(i, _mat[i][j], now)
 			for (int h = _cross; h >= j; h--) {
 				_mat[i][h] -= _mat[i][j] * _mat[now][h];
 			}
@@ -174,11 +174,11 @@ void   matrix::simplfied() {
 			k = i;
 			break;
 		}
-		RAW_DIVI(now, _mat[now][k])
+		ROW_DIVI(now, _mat[now][k])
 		if (_mat[now][k].num != 0) for (int j = _cross; j >= k; j--) _mat[now][j] /= _mat[now][k];
 		PRT_NOW
 		if (_mat[now][k].num != 0) for (int j = 1; j < now; j++) {
-			RAW_SUB(j, _mat[j][k], now);
+			ROW_SUB(j, _mat[j][k], now);
 			for (int h = _cross; h >= k; h--) _mat[j][h] -= _mat[now][h] * _mat[j][k];
 		}
 		now--;
@@ -197,7 +197,7 @@ matrix matrix::transfer() {
 	return _tr;
 }
 
-//ÔËËã·ûÊµÏÖ
+//è¿ç®—ç¬¦å®ç°
 matrix operator + (matrix a1, matrix a2) {
 	matrix ls(a1._raw);
 	ls._raw = a1._raw; ls._cross = a1._cross; ls._mat.clear();
@@ -265,7 +265,7 @@ matrix operator / (matrix a1, ratio con) {
 	con2.makeItselfreciprocal();
 	return a1 * con2;
 }
-//¹¹Ôìº¯ÊıÊµÏÖ
+//æ„é€ å‡½æ•°å®ç°
 matrix::matrix(int _n)
 	:_raw(_n),_cross(_n), _det(0), _rank(0), _has_Gauss(false) {
 	vector<ratio> p;
@@ -304,7 +304,7 @@ matrix::matrix(matrix a1,matrix a2)
 		}
 	}
 }
-//ÀàÍâº¯ÊıÊµÏÖ
+//ç±»å¤–å‡½æ•°å®ç°
 matrix  eye(int n) {
 	matrix e(n);
 	for (int i = 1; i <= n; i++) e._mat[i][i] = 1;
@@ -338,7 +338,7 @@ matrix  rand_matrix(int row, int cross, ratio sup, ratio inf) {
 	return _ans;
 } 
 matrix  matrix_function_solve(matrix coe, matrix tar) {
-	return matrix(1);//Ê©¹¤ÖĞ
+	return matrix(1);//æ–½å·¥ä¸­
 }
 #endif
 
