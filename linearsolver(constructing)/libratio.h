@@ -1,6 +1,7 @@
 #ifndef _LIBRATIO_H_
 #define _LIBRATIO_H_ 
 #define JQD 3
+#define RA(_,__) ratio(_,__)
 #include <iostream>
 #include <cstdio>
 #include<fstream>
@@ -57,7 +58,7 @@ struct ratio
 	ratio(long long num1);
 	ratio(long long num1, long long den1);
 	ratio(unsigned long long num1, unsigned long long den1, bool isNegative);
-	ratio(double a, int i);
+	//ratio(double a, int i);
 	ratio &read(unsigned long long num1, unsigned long long den1, bool isNegative);
 	ratio &print();
 	ratio &simplify();
@@ -176,14 +177,7 @@ ratio::ratio(long long num1)
 		this->read(-num1, 1, true);
 	}
 }
-ratio::ratio(double a, int i) {
-	if (a >= 0) {
-		this->read((long long)(a*pow(10, i)), pow(10, i), false);
-	}
-	else {
-		this->read((long long)-(a*pow(10, i)), pow(10, i), true);
-	}
-}
+
 ratio::ratio(long long num1, long long den1)
 {
 	if(num1 >= 0 && den1 >= 0)
